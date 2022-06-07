@@ -5,5 +5,5 @@
 
   <h3> {{ $name }} </h3>
   <p> {{ $profession }} </p>
-  <img src="img/{{ $image }}" alt="aing" width="200">
+  <img src="img/{{ $image }}" alt="{{ $name }}" width="200" class="rounded-circle">
 @endsection
