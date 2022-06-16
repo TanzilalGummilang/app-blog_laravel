@@ -49,10 +49,4 @@ Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/categories/{category:slug}', [CategoryController::class, 'showPostsWithCategory']);
 
 Route::get('/authors', [AuthorController::class, 'index']);
-// Route::get('/authors/{user:username}', [AuthorController::class, 'showPostsWithAuthor']);
-Route::get('/authors/{user:username}', function(User $user){
-    return view('posts', [
-        'title' => $user->username,
-        'posts' => $user->posts
-    ]);
-});
+Route::get('/authors/{user:username}', [AuthorController::class, 'showPostsWithAuthor']);

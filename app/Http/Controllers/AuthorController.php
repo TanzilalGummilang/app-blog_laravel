@@ -18,9 +18,9 @@ class AuthorController extends Controller
 
     public function showPostsWithAuthor(User $user)
     {
-        return view('author', [
-            'title' => $user->username,
-            'posts' => $user->posts
+        return view('posts', [
+            'title' => "Post By Author : $user->username / $user->name",
+            'posts' => $user->posts->load('user', 'category')
         ]);
     }
 }
