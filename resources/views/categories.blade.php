@@ -3,17 +3,24 @@
 
   <h2 class="mb-4">Post Category</h2>
 
-  @foreach ($categories as $category)
+  
+  <div class="container">
+    <div class="row">
+      @foreach ($categories as $category)
+        <div class="col-md-4">
 
-    <ul>
-      <li>
-        <h2>
-          <a href="/categories/{{ $category->slug }}">{{ $category->name }}</a>
-        </h2>
-      </li>
-    </ul>
-      
+          <a href="/categories/{{ $category->slug }}">
+            <div class="card bg-dark text-white">
+              <img src="https://picsum.photos/1200/800" class="card-img" alt="{{ $category->name }}">
+              <div class="card-img-overlay">
+                <h5 class="card-title bg-dark text-white opacity-75 position-absolute px-3 py-1">{{ $category->name }}</h5>
+              </div>
+            </div>
+          </a>
 
-  @endforeach
+        </div>
+      @endforeach
+    </div>
+  </div>
 
 @endsection

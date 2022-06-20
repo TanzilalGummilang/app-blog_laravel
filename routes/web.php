@@ -29,12 +29,14 @@ Route::fallback(function() {
 
 Route::get('/', function () {
     return view('home', [
+        'active' => "home",
         'title' => "Home"
     ]);
 });
 
 Route::get('/about', function () {
     return view('about', [
+        'active' => "about",
         'title' => "About",
         'name' => "Tanzilal Gummilang",
         'profession' => "Web Developer",

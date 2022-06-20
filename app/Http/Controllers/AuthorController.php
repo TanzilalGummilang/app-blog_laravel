@@ -11,6 +11,7 @@ class AuthorController extends Controller
     public function index()
     {
         return view('authors', [
+            'active' => "authors",
             'title' => "Author",
             'authors' => User::all()
         ]);
@@ -19,6 +20,7 @@ class AuthorController extends Controller
     public function showPostsWithAuthor(User $user)
     {
         return view('posts', [
+            'active' => "authors",
             'title' => "Post By Author : $user->username / $user->name",
             'posts' => $user->posts->load('user', 'category')
         ]);
