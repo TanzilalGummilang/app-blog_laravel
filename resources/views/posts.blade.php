@@ -2,7 +2,27 @@
 
 @section('container')
 
-  <h2 class="mb-4">{{ $title }}</h2>
+  <h2 class="mb-4 text-center">{{ $title }}</h2>
+
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form action="/posts">
+
+        @if (request('category'))
+            <input type="hidden" name="category" value="{{ request('category') }}">
+        @endif
+
+        @if (request('author'))
+            <input type="hidden" name="author" value="{{ request('author') }}">
+        @endif
+
+        <div class="input-group mb-5">
+          <input type="text" class="form-control" placeholder="search..." name="search" value="{{ request('search') }}">
+          <button class="btn btn-primary" type="submit">Button</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
   @if ($posts->count())
 
@@ -14,16 +34,16 @@
         </a>
       </div>
 
-      <img src="https://picsum.photos/id/1008/1200/500" class="card-img-top" alt="{{ $posts[0]->category->name }}">
+      <img src="https://picsum.photos/1200/500" class="card-img-top" alt="{{ $posts[0]->category->name }}">
 
       <div class="card-body text-center">
         <h3 class="card-title">
           <a href="/posts/{{ $posts[0]->slug }}" class="text-decoration-none">{{ $posts[0]->title }}</a>
         </h3>
         <small class="text-muted">
-          By <a href="/authors/{{ $posts[0]->user->username }}" class="text-decoration-none">
+          By <a href="/posts?author={{ $posts[0]->user->username }}" class="text-decoration-none">
             {{ $posts[0]->user->username }} / {{ $posts[0]->user->name }}</a>
-          in <a href="/categories/{{ $posts[0]->category->slug }}" class="text-decoration-none">
+          in <a href="/posts?category={{ $posts[0]->category->slug }}" class="text-decoration-none">
             {{ $posts[0]->category->name }}</a>
           {{ $posts[0]->created_at->diffForHumans() }}
         </small>
@@ -40,7 +60,7 @@
 
             <div class="card">
               <div class="position-absolute bg-dark text-white px-3 py-1 opacity-75">
-                <a href="/posts/{{ $post->slug }}" class="text-decoration-none text-white">
+                <a href="/posts?category={{ $post->category->slug }}" class="text-decoration-none text-white">
                   {{ $post->category->name }}
                 </a>
               </div>
@@ -50,7 +70,10 @@
                   <a href="/posts/{{ $post->slug }}" class="text-decoration-none">{{ $post->title }}</a>
                 </h5>
                 <small>
-                  By: <a href="/authors/{{ $post->user->username }}" class="text-decoration-none">{{ $post->user->username }} / {{ $post->user->name }}</a> in <a href="/categories/{{ $post->category->slug }}" class="text-decoration-none">{{ $post->category->name }}</a>
+                  By: 
+                    <a href="/posts?author={{ $post->user->username }}" class="text-decoration-none">{{ $post->user->username }} / {{ $post->user->name }}</a>
+                  in
+                    <a href="/posts?category={{ $post->category->slug }}" class="text-decoration-none">{{ $post->category->name }}</a>
                 </small>
                 <p>{{ $post->excerpt }}</p>
                 <a href="/posts/{{ $post->slug }}" class="btn btn-primary">Read more...</a>
@@ -63,7 +86,9 @@
     </div>
 
   @else
-      <p>Post not found</p>
+      <p class="text-center fs-3 text-danger">Post not found</p>
   @endif
+
+  {{ $posts->links() }}
 
 @endsection

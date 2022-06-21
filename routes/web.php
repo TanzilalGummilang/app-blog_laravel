@@ -48,7 +48,7 @@ Route::get('/posts', [PostController::class, 'index']);
 Route::get('/posts/{post:slug}', [PostController::class, 'showPost']);
 
 Route::get('/categories', [CategoryController::class, 'index']);
-Route::get('/categories/{category:slug}', [CategoryController::class, 'showPostsWithCategory']);
+// Route::get('/categories/{category:slug}', [CategoryController::class, 'showPostsWithCategory']);
 
 Route::get('/authors', [AuthorController::class, 'index']);
-Route::get('/authors/{user:username}', [AuthorController::class, 'showPostsWithAuthor']);
+// Route::get('/authors/{user:username}', [AuthorController::class, 'showPostsWithAuthor']);

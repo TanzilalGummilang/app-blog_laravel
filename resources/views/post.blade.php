@@ -8,9 +8,9 @@
       <div class="col-md-8">
         <h2>{{ $post->title }}</h2>
         <h5 class="mb-3 fs-6">
-          By <a href="/authors/{{ $post->user->username }}" class="text-decoration-none">
+          By <a href="/posts?author={{ $post->user->username }}" class="text-decoration-none">
             {{ $post->user->username }} / {{ $post->user->name }}</a>
-          in <a href="/categories/{{ $post->category->slug }}" class="text-decoration-none">
+          in <a href="/posts?category={{ $post->category->slug }}" class="text-decoration-none">
             {{ $post->category->name }}</a>
         </h5>
 

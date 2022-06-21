@@ -8,7 +8,7 @@
     <ul>
       <li>
         <h2>
-          <a href="/authors/{{ $author->username }}">{{ $author->username }} / {{ $author->name }}</a>
+          <a href="/posts?author={{ $author->username }}">{{ $author->username }} / {{ $author->name }}</a>
         </h2>
       </li>
     </ul>
