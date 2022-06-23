@@ -16,12 +16,12 @@ class CategoryController extends Controller
         ]);
     }
 
-    public function showPostsWithCategory(Category $category)
+    /* public function showPostsWithCategory(Category $category)
     {
         return view('posts', [
             'active' => "categories",
             'title' => "Post By Category : $category->name",
             'posts' => $category->posts->load('category', 'user')
         ]);
-    }
+    } */
 }

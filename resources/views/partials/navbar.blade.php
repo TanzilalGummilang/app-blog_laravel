@@ -7,12 +7,15 @@
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
+
         <li class="nav-item">
           <a class="nav-link {{ ($active == "home") ? 'active' : '' }}" href="/">Home</a>
         </li>
+
         <li class="nav-item">
           <a class="nav-link {{ ($active == "about") ? 'active' : '' }}" href="/about">About</a>
         </li>
+
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Blog
@@ -28,7 +31,15 @@
             <li><a class="dropdown-item {{ ($active == "authors") ? 'active' : '' }}" href="/authors">Author</a></li>
           </ul>
         </li>
+
       </ul>
+
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a href="/login" class="nav-link {{ ($active == "login") ? 'active' : '' }}"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+        </li>
+      </ul>
+
     </div>
   </div>
 </nav>

@@ -17,12 +17,12 @@ class AuthorController extends Controller
         ]);
     }
 
-    public function showPostsWithAuthor(User $user)
+    /* public function showPostsWithAuthor(User $user)
     {
         return view('posts', [
             'active' => "authors",
             'title' => "Post By Author : $user->username / $user->name",
             'posts' => $user->posts->load('user', 'category')
         ]);
-    }
+    } */
 }
