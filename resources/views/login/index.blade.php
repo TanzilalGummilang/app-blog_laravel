@@ -5,6 +5,13 @@
 <div class="row fs-6 justify-content-center fw-normal">
   <div class="col-lg-6">
 
+    @if (session()->has('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      {{ session('success') }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
+
     <main class="form-login w-100 m-auto">
       <form>
         <h1 class="h3 mb-3 fw-normal text-center">Please Login</h1>
