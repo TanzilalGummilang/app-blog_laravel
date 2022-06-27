@@ -11,7 +11,6 @@ class AuthorController extends Controller
     public function index()
     {
         return view('authors', [
-            'active' => "authors",
             'title' => "Author",
             'authors' => User::all()
         ]);
