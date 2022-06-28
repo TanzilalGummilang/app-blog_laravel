@@ -5,7 +5,7 @@
   <div class="container">
     <div class="row my-3">
 
-      <div class="col-lg-8">
+      <div class="col-lg-10 mb-4">
 
         <a href="/dashboard/posts" class="btn btn-secondary btn-sm">
           <span data-feather="arrow-left"></span> Back to posts
@@ -25,7 +25,7 @@
           <p>{!! $post->body !!}</p>
         </article>
 
-        <a href="/posts">Kembali ke Blog Posts</a>
+        <a href="/dashboard/posts">Kembali ke My Posts</a>
       </div>
 
     </div>

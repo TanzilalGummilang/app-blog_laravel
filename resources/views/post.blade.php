@@ -5,7 +5,7 @@
   <div class="container">
     <div class="row justify-content-center fs-5 fw-normal">
 
-      <div class="col-md-8">
+      <div class="col-md-10 mb-5">
         <h2>{{ $post->title }}</h2>
         <h5 class="mb-3 fs-6">
           By <a href="/posts?author={{ $post->user->username }}" class="text-decoration-none">
