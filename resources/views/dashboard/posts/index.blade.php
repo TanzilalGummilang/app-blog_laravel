@@ -5,6 +5,10 @@
   <h1 class="h2">My Posts</h1>
 </div>
 
+<a href="/dashboard/posts/create" class="btn btn-primary btn-sm">
+  <span data-feather="plus"></span> Create Post
+</a>
+
 <div class="table-responsive">
   <table class="table table-striped table-sm">
     <thead>
