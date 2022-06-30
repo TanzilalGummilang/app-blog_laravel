@@ -10,12 +10,19 @@
         <a href="/dashboard/posts" class="btn btn-secondary btn-sm">
           <span data-feather="arrow-left"></span> Back to posts
         </a>
-        <a href="" class="btn btn-warning btn-sm">
+
+        <a href="/dashboard/posts/{{ $post->slug }}/edit" class="btn btn-warning btn-sm">
           <span data-feather="edit"></span> Edit post
         </a>
-        <a href="" class="btn btn-danger btn-sm">
-          <span data-feather="x-circle"></span> Delete post
-        </a>
+
+        <form action="/dashboard/posts/{{ $post->slug }}" method="POST" class="d-inline">
+          @method('delete')
+          @csrf
+
+          <button class="btn btn-danger btn-sm" onclick="return confirm('Delete this post?')">
+            <span data-feather="x-circle"></span> Delete post
+          </button>
+        </form>
 
         <h1 class="text-center mt-4">{{ $post->title }}</h1>
 
