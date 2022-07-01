@@ -14,7 +14,13 @@
             {{ $post->category->name }}</a>
         </h5>
 
-        <img src="https://picsum.photos/1200/600" class="card-img-top" alt="{{ $post->category->name }}">
+        @if ($post->image)
+          <div style="max-height: 500px; overflow: hidden;">
+            <img src="{{ asset('storage/' . $post->image) }}" class="img-fluid" alt="{{ $post->category->name }}">
+          </div>
+        @else
+          <img src="https://picsum.photos/1200/500" class="img-fluid" alt="{{ $post->category->name }}">
+        @endif
 
         <article class="fs-5 fw-normal">
           <p>{!! $post->body !!}</p>

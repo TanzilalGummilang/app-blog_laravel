@@ -9,7 +9,7 @@
   </div>
 
   <div class="col-lg-8">
-    <form action="/dashboard/posts" method="POST">
+    <form action="/dashboard/posts" method="POST" enctype="multipart/form-data">
       @csrf
 
       <div class="mb-3">
@@ -43,6 +43,16 @@
             @endif
           @endforeach
         </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="image" class="form-label @error('image') is-invalid @enderror">Post Image</label>
+        <input class="form-control" type="file" id="image" name="image">
+        @error('image')
+          <div class="invalid-feedback">
+            {{ $message }}
+          </div>
+        @enderror
       </div>
 
       <div class="mb-3">

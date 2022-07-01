@@ -26,7 +26,13 @@
 
         <h1 class="text-center mt-4">{{ $post->title }}</h1>
 
-        <img src="https://picsum.photos/1200/600" class="card-img-top mt-3" alt="{{ $post->category->name }}">
+        @if ($post->image)
+          <div style="max-height: 500px; overflow: hidden;">
+            <img src="{{ asset('storage/' . $post->image) }}" class="img-fluid mt-3" alt="{{ $post->category->name }}">
+          </div>
+        @else
+          <img src="https://picsum.photos/1200/600" class="img-fluid mt-3" alt="{{ $post->category->name }}">
+        @endif
 
         <article class="fs-6 my-3">
           <p>{!! $post->body !!}</p>
