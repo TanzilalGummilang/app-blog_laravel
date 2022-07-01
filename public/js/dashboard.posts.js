@@ -12,3 +12,18 @@ title.addEventListener('change', function() {
 document.addEventListener('trix-file-accept', function(e) {
   e.preventDefault();
 });
+
+// preview image
+function previewImage() {
+  const img = document.querySelector('#image');
+  const imgPreview = document.querySelector('.imgPreview');
+  
+  imgPreview.style.display = 'block';
+
+  const oFReader = new FileReader();
+  oFReader.readAsDataURL(img.files[0]);
+
+  oFReader.onload = function(oFREvent) {
+    imgPreview.src = oFREvent.target.result;
+  }
+}

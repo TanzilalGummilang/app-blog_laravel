@@ -9,7 +9,7 @@
   </div>
 
   <div class="col-lg-8">
-    <form action="/dashboard/posts/{{ $post->slug }}" method="POST">
+    <form action="/dashboard/posts/{{ $post->slug }}" method="POST" enctype="multipart/form-data">
       @method('put')
       @csrf
 
@@ -47,6 +47,22 @@
       </div>
 
       <div class="mb-3">
+        <label for="image" class="form-label @error('image') is-invalid @enderror">Post Image</label>
+        <input type="hidden" name="oldImage" value="{{ $post->image }}">
+        @if ($post->image)
+          <img src="{{ asset('storage/' . $post->image) }}" class="imgPreview img-fluid mb-2 col-sm-12">
+        @else
+          <img class="imgPreview img-fluid mb-2 col-sm-12">
+        @endif
+        <input class="form-control" type="file" id="image" name="image" onchange="previewImage()">
+        @error('image')
+          <div class="invalid-feedback">
+            {{ $message }}
+          </div>
+        @enderror
+      </div>
+
+      <div class="mb-3">
         <label for="body" class="form-label">Body</label>
         <input id="body" type="hidden" name="body" value="{{ old('body', $post->body) }}">
         <trix-editor input="body"></trix-editor>
@@ -60,11 +76,8 @@
 
     </form>
 
-
   </div>
 
 </div>
-
-<script src="/js/dashboard.posts.create.js"></script>
 
 @endsection
